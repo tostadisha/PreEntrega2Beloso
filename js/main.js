@@ -115,10 +115,11 @@ class UsuarioNuevo {
 }
 let ingresoUsuarioCorrecto;
 let estadoLogin = true;
+let estado = true;
 
 while (estadoLogin) {
   let ingresoNum = prompt(
-    "Hola, antes de comenzar, porfavor elija de las siguientes opciones: \n 1- Logearse \n 2- Registrarse"
+    "Hola, antes de comenzar, porfavor elija de las siguientes opciones: \n 1- Logearse \n 2- Registrarse \n 3- Salir"
   );
   // Si se ingreso algo
   if (ingresoNum != "") {
@@ -168,8 +169,13 @@ while (estadoLogin) {
           nombreNuevo
         );
         usuariosSistema.push(usuarioNuevoArray);
+        ingresoUsuarioCorrecto = usuarioNuevoArray;
+        console.log(ingresoUsuarioCorrecto);
         estadoLogin = false;
         break;
+      case "3":
+        estadoLogin = false;
+        estado = false;
     }
   } else {
     // Si no se ingreso algo
@@ -179,7 +185,6 @@ while (estadoLogin) {
   continue;
 }
 
-let estado = true;
 let arrayNvidia = [];
 let arrayAmd = [];
 let arrayModelo = [];
@@ -187,7 +192,7 @@ let carrito = [];
 let compraParaCarritoN = 0;
 let compraTarjeta = [];
 
-while (true) {
+while (estado) {
   let menuPrincipal = prompt(
     "¿Qué quiere hacer? \n 1 - Verificar saldo \n 2 - Comprar componentes \n 3 - Ver carrito"
   );
